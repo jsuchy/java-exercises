@@ -9,12 +9,12 @@ public class TeamBuilderTest {
 	@Test
 	public void testNoPlayers() {
 		List<String> expected = new ArrayList<String>();
-		assertEquals(expected, TeamBuilder.build(1));
+		assertEquals(expected, new TeamBuilder().build(1));
 	}
 	
 	@Test
 	public void testOnePlayerSplitIntoTeamOfOne() {
-		List<List<String>> teams = TeamBuilder.build(1, "Mike");
+		List<List<String>> teams = new TeamBuilder().build(1, "Mike");
 		assertEquals(1, teams.size());
 		for (List<String> team : teams) {
 			assertEquals(1, team.size());
@@ -23,7 +23,7 @@ public class TeamBuilderTest {
 	
 	@Test
 	public void testTwoPlayersSplitIntoTeamOfTwo() {
-		List<List<String>> teams = TeamBuilder.build(2, "Mike", "Jim");
+		List<List<String>> teams = new TeamBuilder().build(2, "Mike", "Jim");
 		assertEquals(1, teams.size());
 		for (List<String> team : teams) {
 			assertEquals(2, team.size());
@@ -32,7 +32,7 @@ public class TeamBuilderTest {
 	
 	@Test
 	public void testFourPlayersSplitIntoTeamsOfTwo() {
-		List<List<String>> teams = TeamBuilder.build(2, "Mike", "Jim", "Micah", "Bobo");
+		List<List<String>> teams = new TeamBuilder().build(2, "Mike", "Jim", "Micah", "Bobo");
 		assertEquals(2, teams.size());
 		for (List<String> team : teams) {
 			assertEquals(2, team.size());
@@ -41,7 +41,7 @@ public class TeamBuilderTest {
 	
 	@Test
 	public void testSixPlayersSplitIntoTeamsOfThree() {
-		List<List<String>> teams = TeamBuilder.build(3, "Mike", "Jim", "Micah", "Bobo", "Willow", "Franklin");
+		List<List<String>> teams = new TeamBuilder().build(3, "Mike", "Jim", "Micah", "Bobo", "Willow", "Franklin");
 		assertEquals(2, teams.size());
 		for (List<String> team : teams) {
 			assertEquals(3, team.size());
