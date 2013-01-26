@@ -8,17 +8,17 @@ public class TeamBuilder {
 		
 	}
 	
-	public List<List<String>> build(int teamSize, String ...players) {
-		List<List<String>> teams = new LinkedList<List<String>>();
+	public List<String[]> build(int teamSize, String ...players) {
+		List<String[]> teams = new LinkedList<String[]>();
 		
 		if (isEvenTeams(teamSize, players)) {
 			for (int i=0; i < players.length / teamSize; i++) {
 				int start = i * teamSize;
 				String[] members = Arrays.copyOfRange(players, start, start + teamSize);
-				List<String> team = buildTeam(members);
-				if (team.size() > 0) {
-					teams.add(team);
+				if (members.length > 0) {
+					teams.add(members);
 				}
+
 			}
 		}
 		
