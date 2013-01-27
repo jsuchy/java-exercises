@@ -28,13 +28,4 @@ public class TeamBuilder {
 	private boolean isEvenTeams(int teamSize, String[] players) {
 		return players.length % teamSize == 0;
 	}
-	
-	private List<String> buildTeam(String[] players) {
-		List<String> team = new LinkedList<String>();
-		
-		for (String player : players) {
-			team.add(player);
-		}
-		return team;
-	}
 }
