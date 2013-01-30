@@ -1,4 +1,5 @@
 import static org.junit.Assert.*;
+import java.util.EmptyStackException;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +13,7 @@ public class StackTest {
 		stack = new Stack<Integer>();
 	}
 
-	@Test(expected = InvalidStackOperation.class)
+	@Test(expected = EmptyStackException.class)
 	public void popEmptyStackThrowsError() {
 		stack.pop();
 	}

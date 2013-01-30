@@ -1,3 +1,4 @@
+import java.util.EmptyStackException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,15 +10,19 @@ public class Stack<T> {
 		elements = new LinkedList<T>();
 	}
 	
-	public T pop() {
-		if (elements.isEmpty()) {
-			throw new InvalidStackOperation();
-		}
-		return elements.remove(elements.size() - 1);
-	}
-
 	public T push(T value) {
 		elements.add(value);
 		return value;
+	}
+	
+	public T pop() {
+		if (elements.isEmpty()) {
+			throw new EmptyStackException();
+		}
+		return elements.remove(indexOfTopItem());
+	}
+
+	private int indexOfTopItem() {
+		return elements.size() - 1;
 	}
 }
