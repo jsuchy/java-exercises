@@ -4,16 +4,16 @@ import java.util.List;
 class Stock {
 
 	private String symbol;
-	private double price;
-	private List<StockChangeListener> listeners;
+	private int price;
+	private List<StockObserver> listeners;
 
-	public Stock(String symbol, double price) {
+	public Stock(String symbol, int price) {
 		this.symbol = symbol;
 		this.price = price;
-		this.listeners = new LinkedList<StockChangeListener>();
+		this.listeners = new LinkedList<StockObserver>();
 	}
 
-	public void setPrice(double newPrice) {
+	public void setPrice(int newPrice) {
 		price = newPrice;
 		notifyListeners(newPrice);
 	}
@@ -22,14 +22,17 @@ class Stock {
 		return price;
 	}
 
-	public void addStockChangeListener(StockChangeListener listener) {
+	public void attach(StockObserver listener) {
 		listeners.add(listener);
 	}
 	
-	private void notifyListeners(double newPrice) {
-		for (StockChangeListener listener : listeners) {
-			StockEvent stockEvent = new StockEvent(this, symbol, newPrice);
-			listener.StockChanged(stockEvent);
+	public void detach(StockObserver listener) {
+		listeners.remove(listener);
+	}
+	
+	private void notifyListeners(int newPrice) {
+		for (StockObserver listener : listeners) {
+			listener.update(symbol, newPrice);
 		}
 	}
 }
