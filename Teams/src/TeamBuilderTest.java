@@ -8,7 +8,7 @@ public class TeamBuilderTest {
 	private TeamBuilder teamBuilder;
 
 	@Before
-	public void testSetup() {
+	public void setup() {
 		teamBuilder = new TeamBuilder();
 	}
 	
@@ -50,15 +50,14 @@ public class TeamBuilderTest {
 	@Test
 	public void testSixPlayersSplitIntoTeamsOfThree() {
 		List<String[]> teams = teamBuilder.build(3, "Mike", "Jim", "Micah", "Bobo", "Willow", "Franklin");
+		checkNumberOfTeams(2, teams);
 		checkNumberOfMembersInTeams(3, teams);
-		for (String[] team : teams) {
-			assertEquals(3, team.length);
-		}
 	}
 	
 	private void checkNumberOfTeams(int expected, List<String[]> teams) {
 		assertEquals(expected, teams.size());
 	}
+	
 	private void checkNumberOfMembersInTeams(int expected, List<String[]> teams) {
 		for (String[] team : teams) {
 			assertEquals(expected, team.length);

@@ -8,6 +8,7 @@ public class TeamBuilder {
 		
 	}
 	
+	// Return String[][]
 	public List<String[]> build(int teamSize, String ...players) {
 		List<String[]> teams = new LinkedList<String[]>();
 		
@@ -18,7 +19,6 @@ public class TeamBuilder {
 				if (members.length > 0) {
 					teams.add(members);
 				}
-
 			}
 		}
 		
