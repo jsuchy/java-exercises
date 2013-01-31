@@ -1,5 +1,11 @@
-!path fitnesse-standalone.jar
 !define TEST_SYSTEM {slim}
+
+!path fitnesse-standalone.jar
+!path /Users/jsuchy/Projects/java-exercises/DVR/bin
+
+|import|
+|com.jsuchy.example.dvr.fixtures|
+
 !define COLLAPSE_SETUP {true}
 !define COLLAPSE_TEARDOWN {true}
 
