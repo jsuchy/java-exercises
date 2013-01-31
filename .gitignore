@@ -1,5 +1,8 @@
 *.class
 
+# Fitnesse
+FitNesseRoot/files/testResults
+
 # Package Files #
 *.jar
 *.war
