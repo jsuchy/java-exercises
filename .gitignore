@@ -8,5 +8,9 @@ FitNesseRoot/files/testResults
 *.war
 *.ear
 
+# Eclipse #
 **/.settings
 .metadata
+
+# Documentation #
+**/doc
